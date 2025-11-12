@@ -1,0 +1,25 @@
+{
+  "heading": "Notre histoire",
+  "heroTitle": "Notre histoire",
+  "heroSubtitle": "Un voyage, de notre rencontre à toujours.",
+  "item1": {
+    "title": "La rencontre",
+    "time": "2019",
+    "text": "Ajoutez quelques mots sur votre première rencontre."
+  },
+  "item2": {
+    "title": "Premier voyage",
+    "time": "2020",
+    "text": "Un souvenir de votre première aventure ensemble."
+  },
+  "item3": {
+    "title": "La demande",
+    "time": "2024",
+    "text": "Racontez le moment de la grande question."
+  },
+  "item4": {
+    "title": "Et maintenant",
+    "time": "2025",
+    "text": "Quelques mots qui mènent à la célébration."
+  }
+}

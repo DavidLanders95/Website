@@ -1,0 +1,25 @@
+{
+  "heading": "Our Story",
+  "heroTitle": "Our Story",
+  "heroSubtitle": "A little journey from hello to forever.",
+  "item1": {
+    "title": "We met",
+    "time": "2019",
+    "text": "Add a short note about where and how you met."
+  },
+  "item2": {
+    "title": "First trip",
+    "time": "2020",
+    "text": "Add a fun memory from your first adventure together."
+  },
+  "item3": {
+    "title": "The proposal",
+    "time": "2024",
+    "text": "Share how the big question was asked."
+  },
+  "item4": {
+    "title": "Now we’re here",
+    "time": "2025",
+    "text": "A quick note leading into the wedding celebration."
+  }
+}

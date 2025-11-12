@@ -1,0 +1,19 @@
+{
+  "heading": "Admin",
+  "subtitle": "Aperçu des RSVP et lien rapide vers la feuille Google.",
+  "openSheet": "Ouvrir la feuille Google",
+  "total": "Total des RSVP",
+  "yes": "Présence : Oui",
+  "no": "Présence : Non",
+  "unique": "Emails uniques",
+  "plusOnes": "+1 fourni",
+  "last": "Dernière réponse",
+  "recent": "Plus récents (10)",
+  "name": "Nom",
+  "email": "Email",
+  "attending": "Présence",
+  "dietary": "Alimentaire",
+  "plusOne": "+1",
+  "time": "Heure",
+  "noData": "Aucune donnée pour le moment."
+}

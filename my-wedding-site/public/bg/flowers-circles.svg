@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <defs>
+    <!-- Seamless tile: soft orange circles + simple floral rosettes -->
+    <pattern id="flowers-circles" width="160" height="160" patternUnits="userSpaceOnUse">
+      <rect width="160" height="160" fill="none" />
+
+      <!-- Large faint peach wash circles -->
+      <g opacity="0.12">
+        <circle cx="36" cy="34" r="18" fill="#FFC184" />
+        <circle cx="122" cy="46" r="22" fill="#FFA559" />
+        <circle cx="64" cy="120" r="16" fill="#FF8A3D" />
+        <circle cx="138" cy="118" r="13" fill="#FFC184" />
+      </g>
+
+      <!-- Accent outlined rings for depth -->
+      <g opacity="0.15" fill="none" stroke="#FF8A3D" stroke-width="0.8">
+        <circle cx="24" cy="104" r="10" />
+        <circle cx="92" cy="18"  r="9" />
+        <circle cx="150" cy="70" r="8" />
+      </g>
+
+      <!-- Floral rosette (8 petals) reusable symbol -->
+      <g id="rosette" opacity="0.18">
+        <g fill="#FFB26B">
+          <ellipse cx="0" cy="-10" rx="4" ry="10" />
+          <ellipse cx="0" cy="10" rx="4" ry="10" />
+          <ellipse cx="-10" cy="0" rx="10" ry="4" />
+          <ellipse cx="10" cy="0" rx="10" ry="4" />
+          <ellipse transform="rotate(45)"  cx="0" cy="-10" rx="3.6" ry="9.5" />
+          <ellipse transform="rotate(45)"  cx="0" cy="10" rx="3.6" ry="9.5" />
+          <ellipse transform="rotate(45)"  cx="-10" cy="0" rx="9.5" ry="3.6" />
+          <ellipse transform="rotate(45)"  cx="10" cy="0" rx="9.5" ry="3.6" />
+        </g>
+        <circle cx="0" cy="0" r="3.2" fill="#FF8A3D" opacity="0.55" />
+      </g>
+
+      <!-- Place rosettes (avoid edges to keep tile seamless) -->
+      <use href="#rosette" x="44"  y="88" />
+      <use href="#rosette" x="128" y="130" transform="scale(0.9)" />
+      <use href="#rosette" x="112" y="22"  transform="scale(0.8)" />
+      <use href="#rosette" x="20"  y="142" transform="scale(0.75)" />
+
+      <!-- Tiny blossoms for texture -->
+      <g opacity="0.16" fill="#FFA559">
+        <circle cx="12" cy="18" r="2" />
+        <circle cx="148" cy="12" r="2" />
+        <circle cx="84" cy="154" r="2" />
+        <circle cx="6"  cy="96"  r="2" />
+        <circle cx="154" cy="144" r="2" />
+      </g>
+    </pattern>
+  </defs>
+  <rect width="160" height="160" fill="url(#flowers-circles)" />
+  <!-- Note: This is a tile preview. In CSS we repeat this pattern over a warm cream bg. -->
+</svg>

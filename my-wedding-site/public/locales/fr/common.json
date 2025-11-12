@@ -1,0 +1,16 @@
+{
+  "title": "Nous nous marions",
+  "subtitle": "Rejoignez-nous pour célébrer notre grand jour",
+  "footer": "Avec amour",
+  "nav": {
+    "home": "Accueil",
+    "where": "Où",
+    "when": "Quand",
+    "what": "Déroulé",
+    "hostel": "Infos gîte",
+    "ourStory": "Notre histoire",
+    "schedule": "Programme",
+    "travel": "Infos voyage",
+    "rsvp": "RSVP"
+  }
+}

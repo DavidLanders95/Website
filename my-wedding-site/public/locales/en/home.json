@@ -1,0 +1,43 @@
+{
+  "heroTitle": "Morgane and David are getting married",
+  "heroSubtitle": "We're very excited to celebrate with you.",
+  "heroSubtitleUrl": "https://www.youtube.com/watch?v=p03HzTqp6Iw",
+  "ctaRsvp": "RSVP",
+  "ctaConfetti": "Throw confetti",
+  "where": {
+    "heading": "Where",
+    "subtitle": "A Gite in the mountains southeast of Grenoble, France",
+    "venue": "Address: Le Mas, 38119 Villard-Saint-Christophe, France",
+    "viewMap": "View on map",
+    "mapLink": "https://www.google.com/maps?q=44.9902,5.8005428",
+    "embedUrl": "https://www.google.com/maps?hl=en&gl=fr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x478a7cd8a17bfbdf:0xfb3778ab4a6030c2",
+    "embedQuery": "",
+    "embedLat": "44.9902",
+    "embedLng": "5.8005428",
+    "embedZoom": "18"
+  },
+  "when": {
+    "heading": "When",
+    "subtitle": "Saturday, July 4th, 2026"
+  },
+  "what": {
+    "heading": "What to expect",
+    "lines": [
+      "• The venue is a hostel located about 40 minutes from Grenoble. We booked it from the afternoon of Friday, July 3rd until the morning of Monday, July 6th.",
+      "• The wedding ceremony and reception will take place on Saturday, July 4th. You are welcome to arrive on the afternoon of Friday, July 3rd and stay until the morning of Monday, July 6th if you wish. There will be plenty of time to relax, explore the local area, and hang out with other guests over the weekend.",
+      "• On Saturday, the schedule will be roughly as follows: Marriage Registry in Fontaine Hotel De Ville on Saturday afternoon, and then go to Gite for ceremony, dinner and wedding party.",
+      "• Casual dress code (but feel free to dress up if you want!)"
+    ]
+  },
+  "hostel": {
+    "heading": "Hostel Information",
+    "lines": [
+      "• It can sleep 40 people.",
+      "• The rooms are all shared, and they take 6 to 10 people each in single bunk beds. The bedsheets are not provided (it helps if you can bring some, or a sleeping bag, but if you can’t we can see what we can do). A few duvets are provided but it should be warm enough that you wouldn’t need it.",
+      "• The bathrooms are also shared (1 main area with sinks and 4 individual toilets and 4 individual tiled boxed showers).",
+      "• If you wish to stay in the gite, we will try as much as possible to organise rooms so people stay with family or at least people their own age.",
+      "• If you do not wish to stay in the gite, there are several hotel options nearby (within a 10 minute drive or so). We can help you find something and/or book a room.",
+      "• Anyone is also allowed to camp in the grounds of the gite (although we can only provide one 2-person tent)."
+    ]
+  }
+}

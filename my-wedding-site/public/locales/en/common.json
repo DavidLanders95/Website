@@ -1,0 +1,16 @@
+{
+  "title": "We're Getting Married",
+  "subtitle": "Join us to celebrate our special day",
+  "footer": "© Morgane & David",
+  "nav": {
+    "home": "Home",
+    "where": "Where",
+    "when": "When",
+    "what": "What",
+    "hostel": "Hostel info",
+    "ourStory": "Our Story",
+    "schedule": "Schedule",
+    "travel": "Travel Info",
+    "rsvp": "RSVP"
+  }
+}

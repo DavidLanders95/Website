@@ -1,0 +1,27 @@
+{
+  "name": "my-wedding-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "googleapis": "^129.0.0",
+    "i18next": "^23.11.4",
+    "next": "^14.2.33",
+    "next-i18next": "15.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-i18next": "^14.1.2",
+    "canvas-confetti": "^1.9.3",
+    "nodemailer": "^6.9.13",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.5"
+  }
+}

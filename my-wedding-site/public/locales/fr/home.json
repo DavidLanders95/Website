@@ -1,0 +1,42 @@
+{
+  "heroTitle": "Morgane et David se marient",
+  "heroSubtitle": "Nous avons hâte de célébrer notre mariage avec vous.",
+  "ctaRsvp": "RSVP",
+  "ctaConfetti": "Lancer des confettis",
+  "where": {
+    "heading": "Où",
+    "subtitle": "Gîte de groupe Le Mas",
+    "venue": "Le Mas, 38119 Villard-Saint-Christophe, France",
+    "viewMap": "Voir sur la carte",
+    "mapLink": "https://www.google.com/maps?q=44.9902,5.8005428",
+    "embedUrl": "https://www.google.com/maps?hl=en&gl=fr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x478a7cd8a17bfbdf:0xfb3778ab4a6030c2",
+    "embedQuery": "",
+    "embedLat": "44.9902",
+    "embedLng": "5.8005428",
+    "embedZoom": "18"
+  },
+  "when": {
+    "heading": "Quand",
+    "subtitle": "Samedi 4 juillet 2026 (heure à confirmer)"
+  },
+  "what": {
+    "heading": "Déroulé",
+    "lines": [
+      "• Le lieu de réception est un gite de groupe situé à environ 40 minutes de Grenoble. Nous l'avons réservé du vendredi 3 juillet au lundi 6 juillet.",
+      "• Le mariage et la réception auront lieu le samedi 4 juillet (horaire de la cérémonie à confirmer). Vous pouvez arriver l'après-midi du vendredi 3 juillet et rester jusqu'au matin du lundi 6 juillet si vous le souhaitez.",
+      "• Tenue décontractée (mais n'hésitez pas à venir sur votre 31 si vous le souhaitez !)"
+
+    ],
+    "viewSchedule": "Programme complet"
+  },
+  "hostel": {
+    "heading": "Le gîte",
+    "lines": [
+      "• Il peut accueillir jusqu'à 40 personnes. Les chambres sont des dortoirs de 6 à 10 personnes chacune avec des lits simples superposés. Les draps ne sont pas fournis (ce serait pratique si vous pouviez en apporter, ou un sac de couchage, mais si vous ne pouvez pas, on verra ce qu'on peut faire).",
+      "• Les salles de bains sont communes aussi (voir photo).",
+      "• Si vous souhaitez rester dans le gîte, nous essaierons autant que possible d'organiser les chambres pour que les gens restent en famille ou au moins avec des personnes de leur âge.",
+      "• Si vous ne souhaitez pas rester dormir au gîte, il y a plusieurs hôtels à proximité (environ 10 minutes de route).",
+      "• Nous avons aussi le droit de camper dans le jardin du gîte (mais nous n'avons qu'une tente 2 personnes)."
+    ]
+  }
+}

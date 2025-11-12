@@ -1,0 +1,19 @@
+{
+  "heading": "Admin",
+  "subtitle": "Overview of RSVPs and quick link to the Google Sheet.",
+  "openSheet": "Open Google Sheet",
+  "total": "Total RSVPs",
+  "yes": "Attending: Yes",
+  "no": "Attending: No",
+  "unique": "Unique emails",
+  "plusOnes": "+1 provided",
+  "last": "Last response",
+  "recent": "Most recent (10)",
+  "name": "Name",
+  "email": "Email",
+  "attending": "Attending",
+  "dietary": "Dietary",
+  "plusOne": "+1",
+  "time": "Time",
+  "noData": "No data yet."
+}
