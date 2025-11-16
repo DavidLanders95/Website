@@ -38,5 +38,12 @@
       "• Si vous ne souhaitez pas rester dormir au gîte, il y a plusieurs hôtels à proximité (environ 10 minutes de route).",
       "• Nous avons aussi le droit de camper dans le jardin du gîte (mais nous n'avons qu'une tente 2 personnes)."
     ]
+  },
+  "hostelPhotoAlt": "Photo du gîte {{index}}",
+  "hostelPhotoExpand": "Afficher la photo {{index}} en grand",
+  "hostelLightbox": {
+    "close": "Fermer la photo",
+    "previous": "Photo précédente",
+    "next": "Photo suivante"
   }
 }

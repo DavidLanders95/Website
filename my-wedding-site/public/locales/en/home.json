@@ -39,5 +39,12 @@
       "• If you do not wish to stay in the gite, there are several hotel options nearby (within a 10 minute drive or so). We can help you find something and/or book a room.",
       "• Anyone is also allowed to camp in the grounds of the gite (although we can only provide one 2-person tent)."
     ]
+  },
+  "hostelPhotoAlt": "Gite photo {{index}}",
+  "hostelPhotoExpand": "Open photo {{index}} in a larger view",
+  "hostelLightbox": {
+    "close": "Close photo",
+    "previous": "Previous photo",
+    "next": "Next photo"
   }
 }

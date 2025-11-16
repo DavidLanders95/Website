@@ -73,6 +73,27 @@ footer { text-align: center; padding: 2rem 0; opacity: 0.8; }
 .banner.error { border-color: #fed7d7; background: #fff5f5; }
 .formGrid { display: grid; grid-template-columns: 1fr; row-gap: 1rem; column-gap: 2rem; align-items: start; }
 @media (min-width: 680px) { .formGrid { grid-template-columns: 1fr 1fr; } }
+.fullWidth { grid-column: 1 / -1; }
+.partyTable { display: grid; gap: 0.75rem; }
+.partyHeader { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(140px, 1fr)); gap: 0.75rem; }
+.partyRow { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+.partyRow:last-child { border-bottom: 0; }
+.partyRowGrid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(140px, 1fr)); gap: 0.75rem; align-items: center; }
+.partyRowDietary { margin-top: 0.5rem; }
+.partyDietaryLabel { margin: 0; }
+.partyFieldLabel { display: none; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 0.25rem; }
+.contactBlock { margin-top: 0.5rem; max-width: 520px; }
+@media (min-width: 700px) {
+  .partyRow { padding: 0.75rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.7); box-shadow: 0 3px 10px rgba(0,0,0,0.04); }
+  .partyRow + .partyRow { margin-top: 0.5rem; }
+}
+@media (max-width: 640px) {
+  .partyHeader { display: none; }
+  .partyRowGrid { grid-template-columns: 1fr; }
+  .partyFieldLabel { display: block; }
+  .partyRow { border-bottom: 1px solid var(--border); border-radius: 0; padding-left: 0; padding-right: 0; box-shadow: none; background: transparent; }
+  .partyRow:last-child { border-bottom: 0; }
+}
 .matchList { margin-top: 0.75rem; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip { background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.75rem; cursor: pointer; }
@@ -181,14 +202,99 @@ footer { text-align: center; padding: 2rem 0; opacity: 0.8; }
 @media (min-width: 700px) { 
   .hostelGallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 }
-.hostelGallery img { 
-  width: 100%; 
-  height: 100%; 
-  aspect-ratio: 4 / 3; 
-  object-fit: cover; 
-  border-radius: 10px; 
+.hostelPhoto {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
   border: 1px solid var(--border);
+  overflow: hidden;
   background: #fff;
+  padding: 0;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hostelPhoto:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.hostelPhoto:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.hostelImage {
+  object-fit: cover;
+}
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 9999;
+}
+.lightboxContent {
+  position: relative;
+  width: min(960px, 100%);
+  max-height: 100%;
+  background: rgba(15, 15, 15, 0.95);
+  border-radius: 16px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  box-shadow: 0 25px 35px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.lightboxClose {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.lightboxImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.lightboxNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: #fff;
+}
+.lightboxArrow {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.lightboxArrow:focus-visible,
+.lightboxClose:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+.lightboxCounter {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Hero montage grid (Google Photos-like mosaic) */

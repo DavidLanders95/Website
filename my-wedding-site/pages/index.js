@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Layout from '../components/Layout';
@@ -8,6 +10,9 @@ import HeroBanner from '../components/HeroBanner';
 export default function Home() {
   const { t } = useTranslation(['common', 'home']);
   const confettiRef = useRef(null);
+  const hostelPhotos = [1, 2, 3, 4, 5, 6];
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const photoCount = hostelPhotos.length;
 
   const fireConfetti = async () => {
     try {
@@ -83,6 +88,32 @@ export default function Home() {
   useEffect(() => {
     fireConfetti();
   }, []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setLightboxIndex(null);
+      } else if (event.key === 'ArrowRight') {
+        setLightboxIndex((prev) => (prev === null ? prev : (prev + 1) % photoCount));
+      } else if (event.key === 'ArrowLeft') {
+        setLightboxIndex((prev) => (prev === null ? prev : (prev + photoCount - 1) % photoCount));
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    const body = document.body;
+    const previousOverflow = body.style.overflow;
+    body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      body.style.overflow = previousOverflow;
+    };
+  }, [lightboxIndex, photoCount]);
+
+  const openLightbox = (idx) => setLightboxIndex(idx);
+  const closeLightbox = () => setLightboxIndex(null);
+  const showNext = () => setLightboxIndex((prev) => (prev === null ? prev : (prev + 1) % photoCount));
+  const showPrev = () => setLightboxIndex((prev) => (prev === null ? prev : (prev + photoCount - 1) % photoCount));
   const embedQuery = t('home:where.embedQuery');
   const embedLat = t('home:where.embedLat');
   const embedLng = t('home:where.embedLng');
@@ -105,7 +136,7 @@ export default function Home() {
               : t('home:heroSubtitle')}
           </p>
           <div className="heroCtas">
-            <a className="button" href="/rsvp">{t('home:ctaRsvp')}</a>
+            <Link className="button" href="/rsvp">{t('home:ctaRsvp')}</Link>
             <button type="button" className="button secondary" onClick={fireConfetti}>{t('home:ctaConfetti')}</button>
           </div>
         </div>
@@ -180,16 +211,63 @@ export default function Home() {
           return null;
         })()}
         <div className="hostelGallery" aria-label="Hostel photos">
-          {[1,2,3,4,5,6].map((n) => (
-            <img
+          {hostelPhotos.map((n, idx) => (
+            <button
               key={n}
-              src={`/hostel/gite-${n}.png`}
-              alt={`Gite photo ${n}`}
-              loading="lazy"
-            />
+              type="button"
+              className="hostelPhoto"
+              onClick={() => openLightbox(idx)}
+              aria-label={t('home:hostelPhotoExpand', { index: n })}
+            >
+              <Image
+                src={`/hostel/gite-${n}.png`}
+                alt={t('home:hostelPhotoAlt', { index: n })}
+                fill
+                sizes="(max-width: 700px) 50vw, (max-width: 1024px) 33vw, 320px"
+                className="hostelImage"
+                priority={n <= 2}
+              />
+            </button>
           ))}
         </div>
       </section>
+
+      {lightboxIndex !== null && (
+        <div
+          className="lightboxOverlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('home:hostel.heading')}
+          onClick={closeLightbox}
+        >
+          <div className="lightboxContent" role="document" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="lightboxClose" onClick={closeLightbox} aria-label={t('home:hostelLightbox.close')}>
+              ×
+            </button>
+            <div className="lightboxImageWrap">
+              <Image
+                src={`/hostel/gite-${hostelPhotos[lightboxIndex]}.png`}
+                alt={t('home:hostelPhotoAlt', { index: hostelPhotos[lightboxIndex] })}
+                fill
+                sizes="90vw"
+                className="hostelImage"
+                priority
+              />
+            </div>
+            <div className="lightboxNav">
+              <button type="button" className="lightboxArrow" onClick={showPrev} aria-label={t('home:hostelLightbox.previous')}>
+                ‹
+              </button>
+              <span className="lightboxCounter">
+                {lightboxIndex + 1} / {photoCount}
+              </span>
+              <button type="button" className="lightboxArrow" onClick={showNext} aria-label={t('home:hostelLightbox.next')}>
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }

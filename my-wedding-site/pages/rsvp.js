@@ -175,39 +175,42 @@ export default function RSVP() {
           <div className="card">
             <form className="form" onSubmit={submit}>
               <div className="formGrid">
-                <div style={{ gridColumn: '1 / -1' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'minmax(320px, 2fr) 180px 180px', gap: '1rem', alignItems: 'center' }}>
+                <div className="partyTable fullWidth">
+                  <div className="partyHeader">
                     <div className="muted" style={{ fontWeight: 600 }}>{t('rsvp:member')}</div>
                     <div className="muted" style={{ fontWeight: 600 }}>{t('rsvp:attending')}</div>
                     <div className="muted" style={{ fontWeight: 600 }}>{t('rsvp:memberStaying')}</div>
                   </div>
-                </div>
-                {partyResponses.map((p, idx) => (
-                  <div key={idx} className="partyRow" style={{ gridColumn: '1 / -1' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(320px, 2fr) 180px 180px', gap: '1rem', alignItems: 'center' }}>
-                      <div>
-                        <input aria-label={t('rsvp:member')} className="input" value={p.name} disabled />
+                  {partyResponses.map((p, idx) => (
+                    <div key={idx} className="partyRow">
+                      <div className="partyRowGrid">
+                        <div>
+                          <span className="partyFieldLabel">{t('rsvp:member')}</span>
+                          <input aria-label={t('rsvp:member')} className="input" value={p.name} disabled />
+                        </div>
+                        <div>
+                          <span className="partyFieldLabel">{t('rsvp:attending')}</span>
+                          <select aria-label={t('rsvp:attending')} value={p.attending} onChange={(e)=>{
+                            const v = e.target.value; setPartyResponses((prev)=> prev.map((r,i)=> i===idx ? { ...r, attending: v } : r));
+                          }}>
+                            <option value="Yes">{t('rsvp:attendingYes')}</option>
+                            <option value="No">{t('rsvp:attendingNo')}</option>
+                          </select>
+                        </div>
+                        <div>
+                          <span className="partyFieldLabel">{t('rsvp:memberStaying')}</span>
+                          <select aria-label={t('rsvp:memberStaying')} value={p.staying} onChange={(e)=>{
+                            const v = e.target.value; setPartyResponses((prev)=> prev.map((r,i)=> i===idx ? { ...r, staying: v } : r));
+                          }}>
+                            <option value="">{t('rsvp:selectOption')}</option>
+                            <option>{t('rsvp:stayingYesCamping')}</option>
+                            <option>{t('rsvp:stayingYesBedInDorm')}</option>
+                            <option>{t('rsvp:stayingNo')}</option>
+                          </select>
+                        </div>
                       </div>
-                      <div>
-                        <select aria-label={t('rsvp:attending')} value={p.attending} onChange={(e)=>{
-                          const v = e.target.value; setPartyResponses((prev)=> prev.map((r,i)=> i===idx ? { ...r, attending: v } : r));
-                        }}>
-                          <option>Yes</option>
-                          <option>No</option>
-                        </select>
-                      </div>
-                      <div>
-                        <select aria-label={t('rsvp:memberStaying')} value={p.staying} onChange={(e)=>{
-                          const v = e.target.value; setPartyResponses((prev)=> prev.map((r,i)=> i===idx ? { ...r, staying: v } : r));
-                        }}>
-                          <option value="">{t('rsvp:selectOption')}</option>
-                          <option>{t('rsvp:stayingYesCamping')}</option>
-                          <option>{t('rsvp:stayingYesBedInDorm')}</option>
-                          <option>{t('rsvp:stayingNo')}</option>
-                        </select>
-                      </div>
-                      <div style={{ gridColumn: '1 / -1' }}>
-                        <label className="label" style={{ margin: 0 }}>
+                      <div className="partyRowDietary">
+                        <label className="label partyDietaryLabel">
                           <span className="muted" style={{ fontWeight: 600 }}>{t('rsvp:memberDietary')}</span>
                           <input aria-label={t('rsvp:memberDietary')} className="input" placeholder="Vegetarian, gluten-free, etc." value={p.dietary} onChange={(e)=>{
                             const v = e.target.value; setPartyResponses((prev)=> prev.map((r,i)=> i===idx ? { ...r, dietary: v } : r));
@@ -215,10 +218,10 @@ export default function RSVP() {
                         </label>
                       </div>
                     </div>
-                  </div>
-                ))}
-                <div style={{ gridColumn: '1 / -1', marginTop: '0.5rem' }}>
-                  <div className="label" style={{ maxWidth: 520 }}>
+                  ))}
+                </div>
+                <div className="fullWidth contactBlock">
+                  <div className="label">
                     {t('rsvp:contactEmail')}
                     <input type="email" className="input" placeholder="you@example.com" value={contactEmail} onChange={(e)=>setContactEmail(e.target.value)} />
                     <div className="help">{t('rsvp:contactEmailHelp')}</div>

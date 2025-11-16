@@ -22,6 +22,8 @@
   "name": "Full Name",
   "email": "Email",
   "attending": "Will you attend?",
+  "attendingYes": "Yes",
+  "attendingNo": "No",
   "dietary": "Dietary restrictions (optional)",
   "plusOne": "+1 name (optional)",
   "submit": "Send RSVP",

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
@@ -7,25 +8,36 @@ export default function Layout({ children }) {
   const { locale } = router;
   const otherLocale = locale === 'en' ? 'fr' : 'en';
 
-  // Build locale-switch href without nesting locale prefix twice
-  const stripLocalePrefix = (p) => p.replace(/^\/(en|fr)(?=\/|$)/, '') || '/';
-  const switchHref = `/${otherLocale}${stripLocalePrefix(router.asPath)}`;
-
+  const stripLocalePrefix = (p = '') => p.replace(/^\/(en|fr)(?=[\/?#]|$)/, '') || '/';
+  const switchHref = stripLocalePrefix(router.asPath);
   const switchLabel = otherLocale === 'fr' ? '🇫🇷 FR' : '🇮🇪 EN';
+
+  const navLinks = [
+    { key: 'home', label: t('nav.home'), href: '/', isActive: router.pathname === '/' },
+    { key: 'where', label: t('nav.where'), href: { pathname: '/', hash: 'where' } },
+    { key: 'when', label: t('nav.when'), href: { pathname: '/', hash: 'when' } },
+    { key: 'what', label: t('nav.what'), href: { pathname: '/', hash: 'what' } },
+    { key: 'hostel', label: t('nav.hostel'), href: { pathname: '/', hash: 'hostel' } },
+    { key: 'rsvp', label: t('nav.rsvp'), href: '/rsvp', isActive: router.pathname === '/rsvp' },
+  ];
 
   return (
     <div className="container">
       <nav>
-        <a className={router.pathname === '/' ? 'active' : ''} href="/">{t('nav.home')}</a>
-        <a href="/#where">{t('nav.where')}</a>
-        <a href="/#when">{t('nav.when')}</a>
-        <a href="/#what">{t('nav.what')}</a>
-        <a href="/#hostel">{t('nav.hostel')}</a>
-        {/* Removed Our Story, Schedule, and Travel from navigation per request */}
-        <a className={router.pathname === '/rsvp' ? 'active' : ''} href="/rsvp">{t('nav.rsvp')}</a>
-        <a className="langSwitch" href={switchHref} hrefLang={otherLocale} aria-label={`Switch language to ${otherLocale.toUpperCase()}`}>
+        {navLinks.map(({ key, label, href, isActive }) => (
+          <Link key={key} href={href} locale={locale} className={isActive ? 'active' : ''}>
+            {label}
+          </Link>
+        ))}
+        <Link
+          className="langSwitch"
+          href={switchHref}
+          locale={otherLocale}
+          hrefLang={otherLocale}
+          aria-label={`Switch language to ${otherLocale.toUpperCase()}`}
+        >
           {switchLabel}
-        </a>
+        </Link>
       </nav>
       <main>
         {children}
