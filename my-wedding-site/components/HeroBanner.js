@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import Image from 'next/image';
 
-// Simple hero banner that uses `/public/hero/hero.jpeg`, with a fallback to `/public/hero/hero.png` if missing
+const HERO_SRC = '/hero/hero.png';
+
 export default function HeroBanner() {
-  const [src, setSrc] = useState('/hero/hero.jpeg');
 
   return (
     <section className="heroBanner simple" aria-label="Hero banner">
       <div className="heroGrid">
         <div className="tile" style={{ gridColumn: '1 / span 12' }} aria-hidden="true">
           <Image
-            src={src}
+            src={HERO_SRC}
             alt=""
             fill
             sizes="100vw"
