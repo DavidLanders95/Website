@@ -15,6 +15,7 @@
   "stayingYesCamping": "Yes - camping",
   "stayingYesBedInDorm": "Yes - bed in dormitory",
   "stayingNo": "No",
+  "stayingRequired": "Please choose an option for each guest's stay at the gite.",
   "selectOption": "Select...",
   "stepCheck": "Check invitation",
   "stepRsvp": "Send RSVP",

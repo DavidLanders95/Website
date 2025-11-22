@@ -1,8 +1,8 @@
 {
   "heading": "Admin",
-  "subtitle": "Aperçu des RSVP et lien rapide vers la feuille Google.",
+  "subtitle": "Aperçu des présences et lien rapide vers la feuille Google.",
   "openSheet": "Ouvrir la feuille Google",
-  "total": "Total des RSVP",
+  "total": "Total des présences",
   "yes": "Présence : Oui",
   "no": "Présence : Non",
   "unique": "Emails uniques",

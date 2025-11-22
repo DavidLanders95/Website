@@ -16,6 +16,7 @@ export default function RSVP() {
   const [matches, setMatches] = useState([]);
   const [selectedGuest, setSelectedGuest] = useState(null);
   const [partyResponses, setPartyResponses] = useState([]); // [{name, attending, dietary, staying}]
+  const [validationError, setValidationError] = useState(null);
 
   const checkInvite = async (e) => {
     e.preventDefault();
@@ -50,7 +51,12 @@ export default function RSVP() {
 
   const submit = async (e) => {
     e.preventDefault();
-      setStatus('loading');
+    if (partyResponses.length && partyResponses.some((r)=>!r.staying)) {
+      setValidationError('staying');
+      return;
+    }
+    setValidationError(null);
+    setStatus('loading');
     try {
       const payload = partyResponses && partyResponses.length
         ? { responses: partyResponses.map((r)=>({ Name: r.name, Attending: r.attending, DietaryRestrictions: r.dietary, Staying: r.staying })), ContactEmail: contactEmail || undefined }
@@ -199,10 +205,12 @@ export default function RSVP() {
                         </div>
                         <div>
                           <span className="partyFieldLabel">{t('rsvp:memberStaying')}</span>
-                          <select aria-label={t('rsvp:memberStaying')} value={p.staying} onChange={(e)=>{
-                            const v = e.target.value; setPartyResponses((prev)=> prev.map((r,i)=> i===idx ? { ...r, staying: v } : r));
+                          <select aria-label={t('rsvp:memberStaying')} value={p.staying} required aria-invalid={validationError === 'staying' && !p.staying} onChange={(e)=>{
+                            const v = e.target.value;
+                            setPartyResponses((prev)=> prev.map((r,i)=> i===idx ? { ...r, staying: v } : r));
+                            setValidationError((prev)=> prev === 'staying' ? null : prev);
                           }}>
-                            <option value="">{t('rsvp:selectOption')}</option>
+                            <option value="" disabled hidden>{t('rsvp:selectOption')}</option>
                             <option>{t('rsvp:stayingYesCamping')}</option>
                             <option>{t('rsvp:stayingYesBedInDorm')}</option>
                             <option>{t('rsvp:stayingNo')}</option>
@@ -233,6 +241,11 @@ export default function RSVP() {
                   {status === 'loading' ? t('rsvp:submitting') : t('rsvp:submit')}
                 </button>
               </div>
+              {validationError === 'staying' && (
+                <div className="banner error" style={{ marginTop: '0.75rem' }}>
+                  {t('rsvp:stayingRequired')}
+                </div>
+              )}
               {status === 'loading' && <div className="banner" style={{ marginTop: '0.75rem' }}>{t('rsvp:submitting')}</div>}
               {status === 'error' && <div className="banner error" style={{ marginTop: '0.75rem' }}>{t('rsvp:error')}</div>}
             </form>
